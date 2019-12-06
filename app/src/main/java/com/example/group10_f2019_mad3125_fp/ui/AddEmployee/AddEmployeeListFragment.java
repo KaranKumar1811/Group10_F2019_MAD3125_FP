@@ -23,10 +23,19 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.example.group10_f2019_mad3125_fp.MainMenuActivity;
 import com.example.group10_f2019_mad3125_fp.R;
+import com.example.group10_f2019_mad3125_fp.Singleton;
+import com.example.group10_f2019_mad3125_fp.SplashActivity;
 import com.example.group10_f2019_mad3125_fp.model.employee.Employee;
+import com.example.group10_f2019_mad3125_fp.model.employee.employeeType.FullTime;
+import com.example.group10_f2019_mad3125_fp.model.employee.employeeType.Intern;
 import com.example.group10_f2019_mad3125_fp.model.employee.employeeType.partTime.CommissionBasedPartTime;
+import com.example.group10_f2019_mad3125_fp.model.employee.employeeType.partTime.FixedBasedPartTime;
+import com.example.group10_f2019_mad3125_fp.model.vehicle.Car;
+import com.example.group10_f2019_mad3125_fp.model.vehicle.Motorcycle;
 import com.example.group10_f2019_mad3125_fp.model.vehicle.Vehicle;
+import com.example.group10_f2019_mad3125_fp.ui.Home.HomeFragment;
 
 public class AddEmployeeListFragment extends Fragment {
 
@@ -89,6 +98,7 @@ public class AddEmployeeListFragment extends Fragment {
 
     LinearLayout linearMain;
 
+    Singleton singleton=Singleton.getInstance();
 
     String name;
     int age = 0;
@@ -106,11 +116,13 @@ public class AddEmployeeListFragment extends Fragment {
     Vehicle vehicle = null;
     Employee employee = null;
 
-
+    final Bundle bundle= new Bundle();
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_add_employee, container, false);
+
+
         edtName=root.findViewById(R.id.edtName);
         edtDob=root.findViewById(R.id.edtDob);
         chkVehicle=root.findViewById(R.id.chkVehicle);
@@ -194,7 +206,33 @@ public class AddEmployeeListFragment extends Fragment {
 
         chkFixedOrCommission.setOnClickListener(new View.OnClickListener() {
             @Override
+            public void onClick(View v)
+            {
+                if (chkFixedOrCommission.isChecked())
+                {
+                    edtCommissionPerOrFixedAmt.setHint("Enter Fixed Commission Percentage");
+                }
+                else
+                {
+                    edtCommissionPerOrFixedAmt.setHint("Enter Fixed Commission Amount");
+                }
+
+            }
+        });
+
+
+
+
+        btnSavePayroll.setOnClickListener(new View.OnClickListener() {
+            @Override
             public void onClick(View v) {
+
+                
+               addData();
+
+
+                System.out.println(singleton.getEmployees());
+                System.out.println(singleton.getEmployeeByIndex(2));
 
             }
         });
@@ -219,18 +257,6 @@ public class AddEmployeeListFragment extends Fragment {
 
 
 //
-//    @OnClick(R.id.chkFixedOrCommission)
-//    public void onChkFixedOrCommissionChecked()
-//    {
-//        if (chkFixedOrCommission.isChecked())
-//        {
-//            edtCommissionPerOrFixedAmt.setHint("Enter Fixed Commission Percentage");
-//        }
-//        else
-//        {
-//            edtCommissionPerOrFixedAmt.setHint("Enter Fixed Commission Amount");
-//        }
-//    }
 //
 ////    public static void startIntent(Context context, Bundle bundle) {
 ////        Intent mIntent = new Intent(context, MainTabActivity.class);
@@ -250,110 +276,113 @@ public class AddEmployeeListFragment extends Fragment {
 //
 //    }
 //
-//    public Employee addData(){
-//
-//        if (rbIntern.isChecked()){
-//            name = edtName.getText().toString();
-//            age = Integer.parseInt(edtDob.getText().toString());
-//            schoolName = edtSchoolName.getText().toString();
-//            Intern intern = new Intern();
-//            intern.setName(name);
-//            intern.setSchoolName(schoolName);
-//            intern.setCalBirthYear(age);
-//            intern.setVehicle(vehicle);
-//            intern.calEarnings();
-//            intern.setEmployee("Intern");
-//            addVehicleData(intern);
-//            employee = intern;
-//            Log.d("DataEntry", intern.getName());
-//        }
-//        if (rbFulltime.isChecked()){
-//            name = edtName.getText().toString();
-//            age = Integer.parseInt(edtDob.getText().toString());
-//            salary = Double.parseDouble(edtSalary.getText().toString());
-//            bonus = Double.parseDouble(edtBonus.getText().toString());
-//            FullTime fullTime = new FullTime();
-//            fullTime.setName(name);
-//            fullTime.setAge(age);
-//            fullTime.setSalary(salary);
-//            fullTime.setBonus(bonus);
-//            fullTime.setVehicle(vehicle);
-//            fullTime.setEmployee("FullTime");
-//            fullTime.calEarnings();
-//            addVehicleData(fullTime);
-//            employee = fullTime;
-//            Log.d("DataEntry", "Fulltime");
-//        }
-//        if (rbParttime.isChecked()){
-//            if (chkFixedOrCommission.isChecked())
-//            {
-//                name = edtName.getText().toString();
-//                age = Integer.parseInt(edtDob.getText().toString());
-//                rate = Double.parseDouble(edtRate.getText().toString());
-//                hoursWorked = Double.parseDouble(edtHours.getText().toString());
-//                commisionPer = Double.parseDouble(edtCommissionPerOrFixedAmt.getText().toString());
-//                CommissionBasedPartTime com = new CommissionBasedPartTime();
-//                com.setName(name);
-//                com.setAge(age);
-//                com.setRate(rate);
-//                com.setHoursWorked(hoursWorked);
-//                com.setCommissionPercentage(commisionPer);
-//                com.setVehicle(vehicle);
-//                com.calEarnings();
-//                com.setEmployee("Commission based");
-//                addVehicleData(com);
-//                employee = com;
-//                Log.d("DataEntry", "com");
-//            }else
-//            {
-//                name = edtName.getText().toString();
-//                age = Integer.parseInt(edtDob.getText().toString());
-//                rate = Double.parseDouble(edtRate.getText().toString());
-//                hoursWorked = Double.parseDouble(edtHours.getText().toString());
-//                fixedAmount = Double.parseDouble(edtCommissionPerOrFixedAmt.getText().toString());
-//                FixedBasedPartTime fix = new FixedBasedPartTime();
-//                fix.setName(name);
-//                fix.setAge(age);
-//                fix.setRate(rate);
-//                fix.setHoursWorked(hoursWorked);
-//                fix.setFixedAmount(fixedAmount);
-//                fix.setVehicle(vehicle);
-//                fix.calEarnings();
-//                fix.setEmployee("Fixed based");
-//                addVehicleData(fix);
-//                employee = fix;
-//                Log.d("DataEntry", "Fix");
-//            }
-//        }
-//        Log.d("DataEntry", "Finish");
-//        return employee;
-//    }
-//    public void addVehicleData(Employee emp)
-//    {
-//        if (chkVehicle.isChecked()){
-//            if (rbCar.isChecked()){
-//                Car car = new Car();
-//                car.setCompany(edtModel.getText().toString());
-//                car.setPlate(edtplate.getText().toString());
-//                car.setColour("car");
-//                car.setYear(2015);
-//                emp.setVehicleType("car");
-//                emp.setVehicle(car);
-//                vehicle = car;
-//                Log.d("DataEntry", "car");
-//            }
-//            if (rbMotorcycle.isChecked()){
-//                Motorcycle motorcycle = new Motorcycle();
-//                motorcycle.setCompany(edtModel.getText().toString());
-//                motorcycle.setPlate(edtplate.getText().toString());
-//                motorcycle.setColour("motor");
-//                motorcycle.setYear(2015);
-//                emp.setVehicleType("motor");
-//                emp.setVehicle(motorcycle);
-//                vehicle = motorcycle;
-//                Log.d("DataEntry", "motorcycle");
-//            }
-//        }
-//    }
-//}
+    public Employee addData(){
+
+        if (rbIntern.isChecked()){
+            name = edtName.getText().toString();
+            age = Integer.parseInt(edtDob.getText().toString());
+            schoolName = edtSchoolName.getText().toString();
+            Intern intern = new Intern();
+            intern.setName(name);
+            intern.setSchoolName(schoolName);
+            intern.setCalBirthYear(age);
+            intern.setVehicle(vehicle);
+            intern.calEarnings();
+            intern.setEmployee("Intern");
+            addVehicleData(intern);
+            employee = intern;
+            singleton.addEmployee(employee);
+            Log.d("DataEntry", intern.getName());
+        }
+        if (rbFulltime.isChecked()){
+            name = edtName.getText().toString();
+            age = Integer.parseInt(edtDob.getText().toString());
+            salary = Double.parseDouble(edtSalary.getText().toString());
+            bonus = Double.parseDouble(edtBonus.getText().toString());
+            FullTime fullTime = new FullTime();
+            fullTime.setName(name);
+            fullTime.setAge(age);
+            fullTime.setSalary(salary);
+            fullTime.setBonus(bonus);
+            fullTime.setVehicle(vehicle);
+            fullTime.setEmployee("FullTime");
+            fullTime.calEarnings();
+            addVehicleData(fullTime);
+            employee = fullTime;
+            singleton.addEmployee(employee);
+            Log.d("DataEntry", "Fulltime");
+        }
+        if (rbParttime.isChecked()){
+            if (chkFixedOrCommission.isChecked())
+            {
+                name = edtName.getText().toString();
+                age = Integer.parseInt(edtDob.getText().toString());
+                rate = Double.parseDouble(edtRate.getText().toString());
+                hoursWorked = Double.parseDouble(edtHours.getText().toString());
+                commisionPer = Double.parseDouble(edtCommissionPerOrFixedAmt.getText().toString());
+                CommissionBasedPartTime com = new CommissionBasedPartTime();
+                com.setName(name);
+                com.setAge(age);
+                com.setRate(rate);
+                com.setHoursWorked(hoursWorked);
+                com.setCommissionPercentage(commisionPer);
+                com.setVehicle(vehicle);
+                com.calEarnings();
+                com.setEmployee("Commission based");
+                addVehicleData(com);
+                employee = com;
+                singleton.addEmployee(employee);
+                Log.d("DataEntry", "com");
+            }else
+            {
+                name = edtName.getText().toString();
+                age = Integer.parseInt(edtDob.getText().toString());
+                rate = Double.parseDouble(edtRate.getText().toString());
+                hoursWorked = Double.parseDouble(edtHours.getText().toString());
+                fixedAmount = Double.parseDouble(edtCommissionPerOrFixedAmt.getText().toString());
+                FixedBasedPartTime fix = new FixedBasedPartTime();
+                fix.setName(name);
+                fix.setAge(age);
+                fix.setRate(rate);
+                fix.setHoursWorked(hoursWorked);
+                fix.setFixedAmount(fixedAmount);
+                fix.setVehicle(vehicle);
+                fix.calEarnings();
+                fix.setEmployee("Fixed based");
+                addVehicleData(fix);
+                employee = fix;
+                singleton.addEmployee(employee);
+                Log.d("DataEntry", "Fix");
+            }
+        }
+        Log.d("DataEntry", "Finish");
+        return employee;
+    }
+    public void addVehicleData(Employee emp)
+    {
+        if (chkVehicle.isChecked()){
+            if (rbCar.isChecked()){
+                Car car = new Car();
+                car.setCompany(edtModel.getText().toString());
+                car.setPlate(edtplate.getText().toString());
+                car.setColour("car");
+                car.setYear(2015);
+                emp.setVehicleType("car");
+                emp.setVehicle(car);
+                vehicle = car;
+                Log.d("DataEntry", "car");
+            }
+            if (rbMotorcycle.isChecked()){
+                Motorcycle motorcycle = new Motorcycle();
+                motorcycle.setCompany(edtModel.getText().toString());
+                motorcycle.setPlate(edtplate.getText().toString());
+                motorcycle.setColour("motor");
+                motorcycle.setYear(2015);
+                emp.setVehicleType("motor");
+                emp.setVehicle(motorcycle);
+                vehicle = motorcycle;
+                Log.d("DataEntry", "motorcycle");
+            }
+        }
+    }
 }
