@@ -4,11 +4,11 @@
     <item android:drawable="@android:color/white"/>
     <item>
         <bitmap android:src="@drawable/payrol_logo"
-        android:gravity="center"/>
+        android:gravity="top"/>
     </item>
     <item>
         <bitmap android:src="@drawable/group"
-            android:gravity="bottom"/>
+            android:gravity="center"/>
     </item>
 
 
