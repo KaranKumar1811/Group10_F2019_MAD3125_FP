@@ -231,8 +231,7 @@ public class AddEmployeeListFragment extends Fragment {
                addData();
 
 
-                System.out.println(singleton.getEmployees());
-                System.out.println(singleton.getEmployeeByIndex(2));
+              // singleton.showdata();
 
             }
         });

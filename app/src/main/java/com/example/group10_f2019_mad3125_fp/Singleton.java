@@ -48,4 +48,15 @@ public class Singleton {
         }
         return null;
     }
+
+
+//    public void showdata(){
+//        if (arrayListEmployee.size() > 0)
+//        {
+//            for(int i=0;i<arrayListEmployee.size();i++){
+//               // System.out.println(arrayListEmployee.get(i).getVehicle().getPlate());
+//            }
+//        }
+//    }
+
 }
