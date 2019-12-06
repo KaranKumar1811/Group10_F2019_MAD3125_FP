@@ -42,14 +42,9 @@ public class Singleton {
 
     public ArrayList<Employee> getEmployees() {
         if (arrayListEmployee.size() > 0) {
-            for(int i=0;i<arrayListEmployee.size();i++) {
 
-//                System.out.println(arrayListEmployee.get(i).getAge());
-//                System.out.println(arrayListEmployee.get(i).getName());
-//                System.out.println(arrayListEmployee.get(i).getEmployee());
+            return arrayListEmployee;
 
-                return arrayListEmployee;
-            }
         }
         return null;
     }

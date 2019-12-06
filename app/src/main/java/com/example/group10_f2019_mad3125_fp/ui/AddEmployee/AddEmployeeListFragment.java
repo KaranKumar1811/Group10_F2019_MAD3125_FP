@@ -249,33 +249,6 @@ public class AddEmployeeListFragment extends Fragment {
     }
 
 
-
-
-
-
-
-
-
-//
-//
-////    public static void startIntent(Context context, Bundle bundle) {
-////        Intent mIntent = new Intent(context, MainTabActivity.class);
-////        mIntent.putExtras(bundle);
-////        context.startActivity(mIntent);
-////    }
-//
-//    @OnClick(R.id.btnSavePayroll)
-//    public void onViewClicked() {
-//
-//        bundle.putSerializable("employee", addData());
-//        dbEmployee.insertEmployee(addData());
-//        Intent mIntent = new Intent(AddEmployeeActivity.this, MainTabActivity.class);
-//        Log.d("DataEntry", "IntentCreated");
-//        mIntent.putExtras(bundle);
-//        AddEmployeeActivity.this.startActivity(mIntent);
-//
-//    }
-//
     public Employee addData(){
 
         if (rbIntern.isChecked()){
