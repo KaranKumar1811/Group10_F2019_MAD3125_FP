@@ -27,7 +27,7 @@ public class HomeFragment extends Fragment {
         Date todayDate = new Date();
 
         //Get an instance of the formatter
-        DateFormat dateFormat = DateFormat.getDateTimeInstance();
+        DateFormat dateFormat = DateFormat.getDateInstance();
 
         //If you want to show only the date then you will use
         //DateFormat dateFormat = DateFormat.getDateInstance();
@@ -36,6 +36,7 @@ public class HomeFragment extends Fragment {
         String todayDateTimeString = dateFormat.format(todayDate);
 
         //display Date
+
         dateTextView.setText(todayDateTimeString);
 
 

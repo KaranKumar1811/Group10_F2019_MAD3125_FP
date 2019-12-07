@@ -16,6 +16,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.annotation.NonNull;
@@ -229,7 +230,6 @@ public class AddEmployeeListFragment extends Fragment {
 
                 
                addData();
-
 
               // singleton.showdata();
 
