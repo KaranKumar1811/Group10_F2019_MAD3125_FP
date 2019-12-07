@@ -33,6 +33,7 @@ public class ListEmployeeFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_list_emloyee, container, false);
         rvEmployeeList=root.findViewById(R.id.empListRV);
+        initViews();
         return root;
     }
 
@@ -48,7 +49,12 @@ public class ListEmployeeFragment extends Fragment {
     private void populateData()
     {
         employeeList = new ArrayList<>();
-        employeeList = singleton.getEmployees();
+
+
+        employeeList=singleton.getEmployees();
+
+
+
 
 
     }

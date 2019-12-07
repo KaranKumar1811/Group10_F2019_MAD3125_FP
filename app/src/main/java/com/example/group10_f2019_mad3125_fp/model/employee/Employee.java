@@ -11,7 +11,7 @@ import java.util.GregorianCalendar;
 
 import androidx.annotation.RequiresApi;
 
-public abstract class Employee  {
+public class Employee implements Serializable {
 
     private String name;
     private int age;
@@ -31,6 +31,10 @@ public abstract class Employee  {
     public Employee()
     {
 
+    }
+    public Employee(String EName,String Etype){
+        this.name=EName;
+        this.employee=Etype;
     }
 
     public Employee(String name, int age) {
@@ -89,9 +93,9 @@ public abstract class Employee  {
         this.employeeId = employeeId;
     }
 
-    public abstract double calEarnings();
+    public double calEarnings()
     {
-
+        return 1000;
     }
 
     public void printMyData()

@@ -39,7 +39,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/username"
-                android:inputType="textWebEmailAddress" />
+                android:inputType="textWebEmailAddress"
+                android:text="user@employee.com" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -55,7 +56,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/password"
-                android:inputType="textPassword" />
+                android:inputType="textPassword"
+                android:text="s3cr3t" />
         </com.google.android.material.textfield.TextInputLayout>
 
 
