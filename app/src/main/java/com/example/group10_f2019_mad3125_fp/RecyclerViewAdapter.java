@@ -36,6 +36,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     @Override
     public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
+
+        System.out.println(position);
         final Employee mEmployee=employeeList.get(position);
         holder.empName.setText(mEmployee.getName());
         holder.empType.setText(mEmployee.getEmployee());

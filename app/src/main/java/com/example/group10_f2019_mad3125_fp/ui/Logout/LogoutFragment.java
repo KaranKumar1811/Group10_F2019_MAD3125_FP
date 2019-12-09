@@ -21,8 +21,8 @@ public class LogoutFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
-        View root = inflater.inflate(R.layout.fragment_logout, container, false);
+       getActivity().finish();
 
-        return root;
+        return null;
     }
 }

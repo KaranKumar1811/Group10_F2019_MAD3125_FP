@@ -39,6 +39,7 @@ public class ListEmployeeFragment extends Fragment {
 
 
     private void initViews() {
+
         populateData();
 
         recyclerViewAdapter = new RecyclerViewAdapter(employeeList);

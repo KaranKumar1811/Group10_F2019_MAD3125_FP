@@ -228,7 +228,7 @@ public class AddEmployeeListFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                
+
                addData();
 
               // singleton.showdata();
@@ -264,7 +264,7 @@ public class AddEmployeeListFragment extends Fragment {
             addVehicleData(intern);
             employee = intern;
             singleton.addEmployee(employee);
-            Log.d("DataEntry", intern.getName());
+            Log.d("DataEntry", String.valueOf(intern.getAge()));
         }
         if (rbFulltime.isChecked()){
             name = edtName.getText().toString();

@@ -7,6 +7,7 @@ import com.example.group10_f2019_mad3125_fp.model.vehicle.Vehicle;
 
 import java.io.Serializable;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.GregorianCalendar;
 
 import androidx.annotation.RequiresApi;
@@ -51,7 +52,12 @@ public class Employee implements Serializable {
     }
 
     public int getAge() {
+
+        int curDate= Calendar.getInstance().get(Calendar.YEAR);
+        System.out.println("curDate: "+curDate);
+        age=curDate-age;
         return age;
+
     }
 
     public void setAge(int age) {
