@@ -27,6 +27,10 @@ int pos;
         this.employeeList=employeeList;
     }
 
+    public RecyclerViewAdapter() {
+
+    }
+
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -37,8 +41,8 @@ int pos;
     @Override
     public void onBindViewHolder(@NonNull final ViewHolder holder, final int position) {
 
-        System.out.println(position);
-        pos=position;
+//        System.out.println(position);
+
         final Employee mEmployee=employeeList.get(position);
         holder.empName.setText(mEmployee.getName());
         holder.empType.setText(mEmployee.getEmployee());
@@ -46,6 +50,7 @@ int pos;
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                pos=position;
                 Toast.makeText(holder.itemView.getContext(),mEmployee.getName(),Toast.LENGTH_LONG).show();
                 Intent in = new Intent(holder.itemView.getContext(),EmployeeDetailsActivity.class);
                 in.putExtra("employee", (Serializable) mEmployee);
