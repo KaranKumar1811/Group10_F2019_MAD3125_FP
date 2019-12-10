@@ -19,7 +19,7 @@ import java.util.List;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> implements Serializable
 {
-int pos;
+
 
     private List<Employee> employeeList;
     public RecyclerViewAdapter(List<Employee> employeeList)
@@ -50,19 +50,17 @@ int pos;
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                pos=position;
+
                 Toast.makeText(holder.itemView.getContext(),mEmployee.getName(),Toast.LENGTH_LONG).show();
                 Intent in = new Intent(holder.itemView.getContext(),EmployeeDetailsActivity.class);
                 in.putExtra("employee", (Serializable) mEmployee);
-                in.putExtra("pos",(Serializable) position);
+
                 holder.itemView.getContext().startActivity(in);
             }
         });
     }
 
-    public int getPos() {
-        return pos;
-    }
+
 
     @Override
     public int getItemCount() {

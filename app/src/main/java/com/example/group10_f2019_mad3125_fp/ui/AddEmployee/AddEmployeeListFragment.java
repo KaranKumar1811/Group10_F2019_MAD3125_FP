@@ -273,7 +273,7 @@ public class AddEmployeeListFragment extends Fragment {
             bonus = Double.parseDouble(edtBonus.getText().toString());
             FullTime fullTime = new FullTime();
             fullTime.setName(name);
-            fullTime.setAge(age);
+            fullTime.setCalBirthYear(age);
             fullTime.setSalary(salary);
             fullTime.setBonus(bonus);
             fullTime.setVehicle(vehicle);
@@ -282,7 +282,7 @@ public class AddEmployeeListFragment extends Fragment {
             addVehicleData(fullTime);
             employee = fullTime;
             singleton.addEmployee(employee);
-            Log.d("DataEntry", "Fulltime");
+            Log.d("DataEntry", String.valueOf(fullTime.getAge()));
         }
         if (rbParttime.isChecked()){
             if (chkFixedOrCommission.isChecked())
@@ -304,7 +304,7 @@ public class AddEmployeeListFragment extends Fragment {
                 addVehicleData(com);
                 employee = com;
                 singleton.addEmployee(employee);
-                Log.d("DataEntry", "com");
+                Log.d("DataEntry", String.valueOf(com.getAge()));
             }else
             {
                 name = edtName.getText().toString();
@@ -324,7 +324,7 @@ public class AddEmployeeListFragment extends Fragment {
                 addVehicleData(fix);
                 employee = fix;
                 singleton.addEmployee(employee);
-                Log.d("DataEntry", "Fix");
+                Log.d("DataEntry", String.valueOf(fix.getAge()));
             }
         }
         Log.d("DataEntry", "Finish");
