@@ -54,7 +54,6 @@ public class Employee implements Serializable {
     public int getAge() {
 
         int curDate= Calendar.getInstance().get(Calendar.YEAR);
-        System.out.println("curDate: "+curDate);
         age=curDate-age;
         return age;
 

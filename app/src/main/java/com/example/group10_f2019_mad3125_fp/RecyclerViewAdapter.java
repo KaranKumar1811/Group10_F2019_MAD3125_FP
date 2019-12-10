@@ -17,9 +17,9 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>
+public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> implements Serializable
 {
-
+int pos;
 
     private List<Employee> employeeList;
     public RecyclerViewAdapter(List<Employee> employeeList)
@@ -35,9 +35,10 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final ViewHolder holder, final int position) {
 
         System.out.println(position);
+        pos=position;
         final Employee mEmployee=employeeList.get(position);
         holder.empName.setText(mEmployee.getName());
         holder.empType.setText(mEmployee.getEmployee());
@@ -48,11 +49,15 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 Toast.makeText(holder.itemView.getContext(),mEmployee.getName(),Toast.LENGTH_LONG).show();
                 Intent in = new Intent(holder.itemView.getContext(),EmployeeDetailsActivity.class);
                 in.putExtra("employee", (Serializable) mEmployee);
+                in.putExtra("pos",(Serializable) position);
                 holder.itemView.getContext().startActivity(in);
             }
         });
     }
 
+    public int getPos() {
+        return pos;
+    }
 
     @Override
     public int getItemCount() {
