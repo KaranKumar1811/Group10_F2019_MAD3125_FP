@@ -65,6 +65,11 @@ public class Singleton {
         return null;
     }
 
+    public int arraySize()
+    {
+        return arrayListEmployee.size();
+    }
+
     public ArrayList<Employee> getEmployees() {
         if (arrayListEmployee.size() > 0) {
 

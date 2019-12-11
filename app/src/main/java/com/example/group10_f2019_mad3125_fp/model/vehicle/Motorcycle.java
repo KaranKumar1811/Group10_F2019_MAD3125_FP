@@ -13,7 +13,7 @@ public class Motorcycle extends Vehicle implements Serializable {
     }
 
     public Motorcycle(String company, String plate, String colour, int year, float enginePower, float topSpeed) {
-        super(company, plate, colour, year);
+        super(company, plate, colour, year,"Motorcycle");
         this.enginePower = enginePower;
         this.topSpeed = topSpeed;
     }

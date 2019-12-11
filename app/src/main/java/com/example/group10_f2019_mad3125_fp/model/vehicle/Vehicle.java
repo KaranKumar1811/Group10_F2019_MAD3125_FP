@@ -9,18 +9,24 @@ public abstract class Vehicle implements Serializable {
     private String colour;
     private int year;
 
+
+
+    private String Vtype;
     public Vehicle()
     {
 
     }
 
-    public Vehicle(String company, String plate, String colour, int year) {
+    public Vehicle(String company, String plate, String colour, int year,String vtype) {
         this.company = company;
         this.plate = plate;
         this.colour = colour;
         this.year = year;
+        this.Vtype=vtype;
     }
-
+    public String getVtype() {
+        return Vtype;
+    }
     public String getCompany()
     {
         return company;

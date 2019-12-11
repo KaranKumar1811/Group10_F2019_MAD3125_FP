@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.example.group10_f2019_mad3125_fp.R;
+import com.example.group10_f2019_mad3125_fp.Singleton;
 
 import java.text.DateFormat;
 import java.util.Date;
@@ -17,13 +18,13 @@ import java.util.Date;
 public class HomeFragment extends Fragment {
 
    // private HomeViewModel homeViewModel;
-
+Singleton singleton=Singleton.getInstance();
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
         View root = inflater.inflate(R.layout.fragment_home, container, false);
         final TextView dateTextView = root.findViewById(R.id.text_date);
-
+        TextView numEmp=root.findViewById(R.id.numberEmp);
         Date todayDate = new Date();
 
         //Get an instance of the formatter
@@ -39,7 +40,7 @@ public class HomeFragment extends Fragment {
 
         dateTextView.setText(todayDateTimeString);
 
-
+        numEmp.setText("Number Of Employees : "+singleton.arraySize());
         return root;
     }
 }

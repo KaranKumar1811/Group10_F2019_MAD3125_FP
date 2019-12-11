@@ -32,5 +32,17 @@
         app:layout_constraintTop_toBottomOf="@+id/text_date"
         tools:ignore="MissingConstraints" />
 
+    <TextView
+        android:id="@+id/numberEmp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="TextView"
+        android:textSize="25sp"
+        android:textColor="@color/colorPrimary"
+        app:layout_constraintEnd_toEndOf="@+id/digitalClock"
+        app:layout_constraintStart_toStartOf="@+id/digitalClock"
+        app:layout_constraintTop_toBottomOf="@+id/digitalClock" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

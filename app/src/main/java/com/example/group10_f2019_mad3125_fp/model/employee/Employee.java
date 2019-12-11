@@ -21,7 +21,9 @@ public class Employee implements Serializable {
     private int employeeId;
     private String vehicleType;
 
+
     public String getVehicleType() {
+        vehicleType=vehicle.getVtype();
         return vehicleType;
     }
 

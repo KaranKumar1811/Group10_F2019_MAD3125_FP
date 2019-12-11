@@ -12,7 +12,7 @@ public class Car extends Vehicle implements Serializable {
     }
 
     public Car(String company, String plate, String colour, int year, float storageCapacity, int seatCount) {
-        super(company, plate, colour, year);
+        super(company, plate, colour, year,"Car");
         this.storageCapacity = storageCapacity;
         this.seatCount = seatCount;
     }
