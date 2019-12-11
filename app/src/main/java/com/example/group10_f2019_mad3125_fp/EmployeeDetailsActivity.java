@@ -68,13 +68,13 @@ public class EmployeeDetailsActivity extends AppCompatActivity  {
 
             intern.setVisibility(View.VISIBLE);
             schoolName.setText(((Intern) e).getSchoolName());
-            totalSalary.setText(String.valueOf(e.calEarnings()));
+            totalSalary.setText("$"+String.valueOf(e.calEarnings()));
         }
         if(e instanceof FullTime){
             ftLayout.setVisibility(View.VISIBLE);
-            bonus.setText(String.valueOf(((FullTime)e).getBonus()));
-            basicSalaryFT.setText(String.valueOf(((FullTime)e).getSalary()));
-            totalSalaryFT.setText(String.valueOf(((FullTime)e).calEarnings()));
+            bonus.setText("$"+String.valueOf(((FullTime)e).getBonus()));
+            basicSalaryFT.setText("$"+String.valueOf(((FullTime)e).getSalary()));
+            totalSalaryFT.setText("$"+String.valueOf(((FullTime)e).calEarnings()));
 
 
         }
@@ -82,20 +82,20 @@ public class EmployeeDetailsActivity extends AppCompatActivity  {
         {
             ptLayout.setVisibility(View.VISIBLE);
             hoursWorked.setText(String.valueOf(((PartTime)e).getHoursWorked()));
-            rate.setText(String.valueOf(((PartTime)e).getRate()));
+            rate.setText("$"+String.valueOf(((PartTime)e).getRate()));
 
             if(e instanceof CommissionBasedPartTime)
             {
                 cmPtLayout.setVisibility(View.VISIBLE);
 
                 commissionPer.setText(String.valueOf(((CommissionBasedPartTime)e).getCommissionPercentage()));
-                totalSalaryComPt.setText(String.valueOf(((CommissionBasedPartTime)e).calEarnings()));
+                totalSalaryComPt.setText("$"+String.valueOf(((CommissionBasedPartTime)e).calEarnings()));
             }
             else
             {
                 fbPtlayout.setVisibility(View.VISIBLE);
-                fixedAmount.setText(String.valueOf(((FixedBasedPartTime)e).getFixedAmount()));
-                totalSalaryFixPt.setText(String.valueOf(((FixedBasedPartTime)e).calEarnings()));
+                fixedAmount.setText("$"+String.valueOf(((FixedBasedPartTime)e).getFixedAmount()));
+                totalSalaryFixPt.setText("$"+String.valueOf(((FixedBasedPartTime)e).calEarnings()));
             }
 
 
