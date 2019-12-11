@@ -10,6 +10,9 @@ public abstract class Vehicle implements Serializable {
     private int year;
 
 
+    public void setVtype(String vtype) {
+        Vtype = vtype;
+    }
 
     private String Vtype;
     public Vehicle()

@@ -337,6 +337,7 @@ public class AddEmployeeListFragment extends Fragment {
         if (chkVehicle.isChecked()){
             if (rbCar.isChecked()){
                 Car car = new Car();
+                car.setVtype("Car");
                 car.setCompany(edtModel.getText().toString());
                 car.setPlate(edtplate.getText().toString());
                 car.setColour("car");
@@ -347,7 +348,9 @@ public class AddEmployeeListFragment extends Fragment {
                 Log.d("DataEntry", "car");
             }
             if (rbMotorcycle.isChecked()){
+
                 Motorcycle motorcycle = new Motorcycle();
+                motorcycle.setVtype("Motorcycle");
                 motorcycle.setCompany(edtModel.getText().toString());
                 motorcycle.setPlate(edtplate.getText().toString());
                 motorcycle.setColour("motor");
