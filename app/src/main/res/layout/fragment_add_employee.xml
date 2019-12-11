@@ -72,29 +72,19 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <ImageView
-                android:id="@+id/imgModel"
-                android:layout_width="99dp"
-                android:layout_height="83dp"
-                app:srcCompat="@android:drawable/ic_notification_overlay" />
-
             <EditText
                 android:id="@+id/edtModel"
-                android:layout_width="173dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginEnd="72dp"
                 android:layout_toRightOf="@+id/imageView"
                 android:hint="Enter model" />
 
             <EditText
                 android:id="@+id/edtplate"
-                android:layout_width="173dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
                 android:layout_below="@+id/edtModel"
-                android:layout_marginEnd="72dp"
                 android:layout_toRightOf="@+id/imageView"
                 android:hint="Enter plate number" />
 

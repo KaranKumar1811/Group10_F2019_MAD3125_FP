@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-import com.example.group10_f2019_mad3125_fp.R;
 import com.example.group10_f2019_mad3125_fp.model.employee.Employee;
 import com.example.group10_f2019_mad3125_fp.model.employee.employeeType.FullTime;
 import com.example.group10_f2019_mad3125_fp.model.employee.employeeType.Intern;
@@ -102,9 +101,9 @@ public class EmployeeDetailsActivity extends AppCompatActivity  {
         }
 
         this.vehicles.setText(e.getVehicle() == null ? "null" : e.getVehicle() instanceof Car ? "CAR" : "MOTER CYCLE");
-        vehicles.setText("Employee Has a : "+e.getVehicleType()+"\n");
-        vehicles.append("Make : "+e.getVehicle().getCompany()+"\n");
-        vehicles.append("Plate : "+e.getVehicle().getPlate());
+        vehicles.setText("Employee Has a : "+e.getVehicleType()+"\n\n");
+        vehicles.append("Make : "+e.getVehicle().getCompany()+"\n\n");
+        vehicles.append("Plate : "+e.getVehicle().getPlate()+"\n");
 
 
 

@@ -131,7 +131,7 @@ public class AddEmployeeListFragment extends Fragment {
         rbMotorcycle=root.findViewById(R.id.rbMotorcycle);
         rgbVehicle=root.findViewById(R.id.rgbVehicle);
         linearVehicle=root.findViewById(R.id.linearVehicle);
-        imgModel=root.findViewById(R.id.imgModel);
+
         edtModel=root.findViewById(R.id.edtModel);
         edtplate=root.findViewById(R.id.edtplate);
         relativeVehicleInfo=root.findViewById(R.id.relativeVehicleInfo);
