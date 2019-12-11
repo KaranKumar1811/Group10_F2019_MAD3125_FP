@@ -14,12 +14,13 @@ import com.example.group10_f2019_mad3125_fp.model.employee.employeeType.Intern;
 import com.example.group10_f2019_mad3125_fp.model.employee.employeeType.PartTime;
 import com.example.group10_f2019_mad3125_fp.model.employee.employeeType.partTime.CommissionBasedPartTime;
 import com.example.group10_f2019_mad3125_fp.model.employee.employeeType.partTime.FixedBasedPartTime;
+import com.example.group10_f2019_mad3125_fp.model.vehicle.Car;
 
 import java.io.Serializable;
 
 public class EmployeeDetailsActivity extends AppCompatActivity  {
 
-    TextView name,age,empType,schoolName,totalSalary,bonus,basicSalaryFT,totalSalaryFT,hoursWorked,rate,commissionPer,fixedAmount,totalSalaryComPt,totalSalaryFixPt;
+    TextView vehicles,name,age,empType,schoolName,totalSalary,bonus,basicSalaryFT,totalSalaryFT,hoursWorked,rate,commissionPer,fixedAmount,totalSalaryComPt,totalSalaryFixPt;
     ConstraintLayout intern,ftLayout,ptLayout,cmPtLayout,fbPtlayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +41,7 @@ public class EmployeeDetailsActivity extends AppCompatActivity  {
         fixedAmount=findViewById(R.id.txtFixedAmnount);
         totalSalaryComPt=findViewById(R.id.txtComPTotalSalary);
         totalSalaryFixPt=findViewById(R.id.txtFixPTotalSalary);
-
+        vehicles=findViewById(R.id.txtVehicleDetails);
 
         intern=findViewById(R.id.InternLayout);
         ftLayout=findViewById(R.id.FullTmLayout);
@@ -99,6 +100,12 @@ public class EmployeeDetailsActivity extends AppCompatActivity  {
 
 
         }
+
+        this.vehicles.setText(e.getVehicle() == null ? "null" : e.getVehicle() instanceof Car ? "CAR" : "MOTER CYCLE");
+        vehicles.setText("Employee Has a : "+e.getVehicleType()+"\n");
+        vehicles.append("Make : "+e.getVehicle().getCompany()+"\n");
+        vehicles.append("Plate : "+e.getVehicle().getPlate());
+
 
 
     }
