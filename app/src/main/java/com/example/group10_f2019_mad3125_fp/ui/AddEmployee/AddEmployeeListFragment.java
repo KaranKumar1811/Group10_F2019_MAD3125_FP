@@ -233,7 +233,7 @@ public class AddEmployeeListFragment extends Fragment {
 
                addData();
 
-
+            getActivity().onBackPressed();
 
             }
         });
