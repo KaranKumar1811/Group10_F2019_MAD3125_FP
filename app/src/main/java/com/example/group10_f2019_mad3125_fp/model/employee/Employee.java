@@ -38,9 +38,10 @@ public class Employee implements Serializable {
         this.employee=Etype;
     }
 
-    public Employee(String name, int age) {
+    public Employee(String name, int age ,String EType) {
         this.name = name;
         this.age = age;
+        this.employee=EType;
     }
 
     public String getName() {

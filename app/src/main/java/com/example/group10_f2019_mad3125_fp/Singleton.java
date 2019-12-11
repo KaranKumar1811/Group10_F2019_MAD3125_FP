@@ -3,6 +3,8 @@ package com.example.group10_f2019_mad3125_fp;
 
 
 import com.example.group10_f2019_mad3125_fp.model.employee.Employee;
+import com.example.group10_f2019_mad3125_fp.model.employee.employeeType.Intern;
+import com.example.group10_f2019_mad3125_fp.model.vehicle.Car;
 
 import java.util.ArrayList;
 
@@ -15,6 +17,10 @@ public class Singleton {
     ArrayList<Employee> arrayListEmployee = new ArrayList<>();
 
     private Singleton() {
+        Intern i1=new Intern("Ankita",24,"Lambton");
+        Car c1=new Car("Swift","ABC123","Red",2018,20,4);
+        i1.setVehicle(c1);
+        addEmployee(i1);
     }
 
     /**

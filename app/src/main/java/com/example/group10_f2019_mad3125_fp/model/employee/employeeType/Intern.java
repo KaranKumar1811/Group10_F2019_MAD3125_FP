@@ -19,7 +19,7 @@ public class Intern extends Employee implements Serializable {
     }
 
     public Intern(String name, int age, String schoolName) {
-        super(name, age);
+        super(name, age, "Intern");
         this.schoolName = schoolName;
     }
 

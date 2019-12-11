@@ -19,7 +19,7 @@ public class CommissionBasedPartTime extends PartTime implements Serializable {
     }
 
     public CommissionBasedPartTime(String name, int age, double rate, double hoursWorked, double commissionPercentage) {
-        super(name, age, rate, hoursWorked);
+        super(name, age, rate, hoursWorked,"CommissionBased");
         this.commissionPercentage = commissionPercentage;
     }
 

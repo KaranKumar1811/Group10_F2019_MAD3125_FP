@@ -46,6 +46,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         final Employee mEmployee=employeeList.get(position);
         holder.empName.setText(mEmployee.getName());
         holder.empType.setText(mEmployee.getEmployee());
+        System.out.println("D Age: "+mEmployee.getEmployee());
+        System.out.println("D Plate: "+mEmployee.getVehicle().getPlate());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override

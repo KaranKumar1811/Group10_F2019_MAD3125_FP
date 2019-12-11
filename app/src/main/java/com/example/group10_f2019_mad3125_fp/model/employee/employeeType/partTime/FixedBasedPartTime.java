@@ -19,7 +19,7 @@ public class FixedBasedPartTime extends PartTime implements Serializable {
     }
 
     public FixedBasedPartTime(String name, int age, double rate, double hoursWorked, double fixedAmount) {
-        super(name, age, rate, hoursWorked);
+        super(name, age, rate, hoursWorked,"FixedBased");
         this.fixedAmount = fixedAmount;
     }
 
