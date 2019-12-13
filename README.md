@@ -6,6 +6,8 @@ Karan Kumar (C0769647)
 
 Sandeep (C0764112)
 
+GitScrum:https://gitscrum.com/sandeepsingh2810/employeepayrollsystem/planning
+
 | Sr. No.         | Image               |        Description |
 |---------------|---------------------|--------------------|  
 1 | <img src="https://user-images.githubusercontent.com/55303133/70679960-be1b7800-1c64-11ea-906f-7583dcb8458e.png" width="100" height="120"/>| Splash Screen|
